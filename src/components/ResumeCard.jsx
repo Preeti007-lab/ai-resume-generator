@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Calendar, Trash2, Eye, ExternalLink, Sparkles } from 'lucide-react';
+import { FileText, Calendar, Trash2, Eye, ExternalLink, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const ResumeCard = ({ resume, onView, onDelete }) => {
   // Normalize resume data structure
@@ -35,18 +35,19 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
 
   return (
     <div className="card card-hover animate-fade-in" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem', gap: '0.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', gap: '0.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
           <div style={{
-            width: 38,
-            height: 38,
+            width: 42,
+            height: 42,
             borderRadius: 'var(--radius-md)',
-            backgroundColor: 'var(--primary-light)',
-            color: 'var(--primary)',
+            background: 'var(--aurora-gradient)',
+            color: '#fff',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            flexShrink: 0
+            flexShrink: 0,
+            boxShadow: '0 4px 12px rgba(79, 70, 229, 0.25)'
           }}>
             <FileText size={20} />
           </div>
@@ -54,7 +55,7 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
             <h3 style={{ fontSize: '1.0625rem', color: 'var(--slate-900)', fontWeight: 700, lineHeight: 1.3 }}>
               {title}
             </h3>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--slate-500)', fontWeight: 500 }}>
+            <p style={{ fontSize: '0.8125rem', color: 'var(--primary)', fontWeight: 600 }}>
               {name}
             </p>
           </div>
@@ -70,8 +71,8 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
         <p style={{
           fontSize: '0.875rem',
           color: 'var(--slate-600)',
-          margin: '0.5rem 0 1rem',
-          lineHeight: 1.5,
+          margin: '0 0 1.25rem',
+          lineHeight: 1.55,
           display: '-webkit-box',
           WebkitLineClamp: 2,
           WebkitBoxOrient: 'vertical',
@@ -81,7 +82,7 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
         </p>
       )}
 
-      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.25rem', marginTop: 'auto' }}>
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.25rem', marginTop: 'auto', flexWrap: 'wrap' }}>
         {experienceCount > 0 && (
           <span className="badge badge-slate" style={{ fontSize: '0.75rem' }}>
             {experienceCount} {experienceCount === 1 ? 'Role' : 'Roles'}
@@ -92,8 +93,8 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
             {skillsCount} Skills
           </span>
         )}
-        <span className="badge badge-primary" style={{ fontSize: '0.75rem', marginLeft: 'auto' }}>
-          <Sparkles size={10} /> AI Optimized
+        <span className="badge badge-aurora" style={{ fontSize: '0.75rem', marginLeft: 'auto' }}>
+          <Sparkles size={11} /> ATS Ready
         </span>
       </div>
 
@@ -111,13 +112,13 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
           style={{ flex: 1 }}
         >
           <Eye size={15} />
-          View Resume
+          <span>View Resume</span>
         </button>
 
         <button
           onClick={() => onDelete(resume)}
           className="btn btn-danger-outline btn-sm"
-          style={{ padding: '0.375rem 0.625rem' }}
+          style={{ padding: '0.4rem 0.65rem' }}
           title="Delete resume"
           aria-label="Delete this resume"
         >
