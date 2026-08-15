@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, SignInButton, SignUpButton } from '@clerk/clerk-react';
 import {
@@ -18,12 +18,60 @@ import {
   TrendingUp,
   Cpu,
   Lock,
-  Download
+  Download,
+  Wand2,
+  RefreshCw,
+  Sliders,
+  Palette,
+  ShieldAlert,
+  BarChart3,
+  Bot
 } from 'lucide-react';
 
 export const HomePage = () => {
   const { isSignedIn } = useAuth();
   const navigate = useNavigate();
+
+  // Interactive Showcase State
+  const [activeShowcaseTab, setActiveShowcaseTab] = useState('ai-rewrite');
+  const [sampleIdx, setSampleIdx] = useState(0);
+  const [activeThemeColor, setActiveThemeColor] = useState('#8b5cf6');
+
+  // AI Rewrite Samples
+  const rewriteSamples = [
+    {
+      role: 'Full-Stack Developer',
+      before: 'I wrote React components and fixed bugs on the company website.',
+      after: '• Engineered high-performance React & TypeScript micro-modules, resolving 45+ critical blockers and reducing initial bundle size by 32%.',
+      impact: '+32% Faster Load Time'
+    },
+    {
+      role: 'Product Manager',
+      before: 'Managed team deadlines and helped launch the new client portal.',
+      after: '• Spearheaded end-to-end delivery of the flagship client portal across 4 cross-functional squads, onboarding 120k+ active users within 60 days.',
+      impact: '120k+ Active Users'
+    },
+    {
+      role: 'Data Scientist',
+      before: 'Analyzed database records and built machine learning models for predictions.',
+      after: '• Architected predictive neural pipelines using Python & PyTorch, boosting customer churn forecasting precision to 94.8% across 1M+ records.',
+      impact: '94.8% ML Precision'
+    }
+  ];
+
+  const currentSample = rewriteSamples[sampleIdx];
+
+  const handleNextSample = () => {
+    setSampleIdx((prev) => (prev + 1) % rewriteSamples.length);
+  };
+
+  const themeOptions = [
+    { name: 'Royal Lavender', color: '#8b5cf6', bg: 'rgba(243, 232, 255, 0.9)' },
+    { name: 'Rose Blossom', color: '#ec4899', bg: 'rgba(253, 242, 248, 0.9)' },
+    { name: 'Sunny Gold', color: '#ca8a04', bg: 'rgba(254, 249, 195, 0.9)' },
+    { name: 'Botanical Sage', color: '#10b981', bg: 'rgba(236, 253, 245, 0.9)' },
+    { name: 'Executive Indigo', color: '#4f46e5', bg: 'rgba(238, 242, 255, 0.9)' }
+  ];
 
   return (
     <div className="animate-fade-in" style={{ position: 'relative', overflow: 'hidden', paddingBottom: '5rem' }}>
@@ -139,10 +187,10 @@ export const HomePage = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              background: 'rgba(255, 255, 255, 0.75)',
+              background: 'rgba(250, 245, 255, 0.85)',
               padding: '0.4rem 0.875rem',
               borderRadius: 'var(--radius-full)',
-              border: '1px solid var(--slate-200)',
+              border: '1px solid rgba(216, 180, 254, 0.5)',
               backdropFilter: 'blur(8px)',
               boxShadow: 'var(--shadow-xs)'
             }}>
@@ -153,10 +201,10 @@ export const HomePage = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              background: 'rgba(255, 255, 255, 0.75)',
+              background: 'rgba(254, 252, 232, 0.85)',
               padding: '0.4rem 0.875rem',
               borderRadius: 'var(--radius-full)',
-              border: '1px solid var(--slate-200)',
+              border: '1px solid rgba(254, 240, 138, 0.7)',
               backdropFilter: 'blur(8px)',
               boxShadow: 'var(--shadow-xs)'
             }}>
@@ -167,10 +215,10 @@ export const HomePage = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              background: 'rgba(255, 255, 255, 0.75)',
+              background: 'rgba(250, 245, 255, 0.85)',
               padding: '0.4rem 0.875rem',
               borderRadius: 'var(--radius-full)',
-              border: '1px solid var(--slate-200)',
+              border: '1px solid rgba(216, 180, 254, 0.5)',
               backdropFilter: 'blur(8px)',
               boxShadow: 'var(--shadow-xs)'
             }}>
@@ -179,82 +227,221 @@ export const HomePage = () => {
             </div>
           </div>
 
-          {/* Interactive Live Mockup Showcase Card */}
+          {/* ========================================================================= */}
+          {/* INTERACTIVE RESUBLOOM FEATURE SHOWCASE (Tabs: AI Rewrite | ATS Match | Styling) */}
+          {/* ========================================================================= */}
           <div style={{ marginTop: '4rem', position: 'relative' }}>
             <div className="glass-hero-card" style={{
-              padding: '2.5rem 2rem',
-              maxWidth: '820px',
+              padding: '2rem',
+              maxWidth: '860px',
               margin: '0 auto',
               textAlign: 'left',
               position: 'relative'
             }}>
-              {/* Top Mockup Status Bar */}
+              {/* Interactive Showcase Navigation Switcher Tabs */}
               <div style={{
                 display: 'flex',
-                justifyContent: 'space-between',
                 alignItems: 'center',
-                borderBottom: '1px solid var(--slate-200)',
+                justifyContent: 'space-between',
+                borderBottom: '1.5px solid rgba(216, 180, 254, 0.4)',
                 paddingBottom: '1.25rem',
-                marginBottom: '1.75rem',
+                marginBottom: '1.5rem',
                 flexWrap: 'wrap',
                 gap: '0.75rem'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: 'var(--radius-md)',
-                    background: 'var(--aurora-gradient)',
-                    color: '#fff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: '0 4px 10px rgba(99, 102, 241, 0.3)'
-                  }}>
-                    <FileText size={20} />
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveShowcaseTab('ai-rewrite')}
+                    className="btn btn-sm"
+                    style={{
+                      background: activeShowcaseTab === 'ai-rewrite' ? 'var(--aurora-gradient)' : 'rgba(243, 232, 255, 0.8)',
+                      color: activeShowcaseTab === 'ai-rewrite' ? '#fff' : '#6b21a8',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid rgba(216, 180, 254, 0.6)'
+                    }}
+                  >
+                    <Wand2 size={14} />
+                    <span>Live AI Rewriter</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setActiveShowcaseTab('ats-score')}
+                    className="btn btn-sm"
+                    style={{
+                      background: activeShowcaseTab === 'ats-score' ? 'var(--aurora-gradient)' : 'rgba(254, 249, 195, 0.8)',
+                      color: activeShowcaseTab === 'ats-score' ? '#fff' : '#854d0e',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid rgba(254, 240, 138, 0.7)'
+                    }}
+                  >
+                    <BarChart3 size={14} />
+                    <span>ATS Keyword Radar</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setActiveShowcaseTab('styles')}
+                    className="btn btn-sm"
+                    style={{
+                      background: activeShowcaseTab === 'styles' ? 'var(--aurora-gradient)' : 'rgba(243, 232, 255, 0.8)',
+                      color: activeShowcaseTab === 'styles' ? '#fff' : '#6b21a8',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid rgba(216, 180, 254, 0.6)'
+                    }}
+                  >
+                    <Palette size={14} />
+                    <span>Palette Themes</span>
+                  </button>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                  <span className="badge badge-lavender" style={{ fontSize: '0.75rem' }}>
+                    <Bot size={12} /> Groq LLaMA 3.3 Versatile
+                  </span>
+                </div>
+              </div>
+
+              {/* TAB 1: LIVE AI REWRITER DEMONSTRATION */}
+              {activeShowcaseTab === 'ai-rewrite' && (
+                <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: '#581c87', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        Target Role:
+                      </span>
+                      <span className="badge badge-yellow" style={{ fontSize: '0.8125rem' }}>
+                        {currentSample.role}
+                      </span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={handleNextSample}
+                      className="btn btn-ghost btn-sm"
+                      style={{ fontSize: '0.8125rem', color: '#7e22ce', display: 'inline-flex', alignItems: 'center', gap: '0.375rem' }}
+                      title="Switch to another job profile"
+                    >
+                      <RefreshCw size={13} />
+                      <span>Next Role Example</span>
+                    </button>
                   </div>
-                  <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--slate-900)', margin: 0 }}>
-                      Alex Morgan
-                    </h3>
-                    <p style={{ fontSize: '0.8125rem', color: 'var(--primary)', fontWeight: 600, margin: 0 }}>
-                      Senior Full-Stack Engineer & AI Specialist
+
+                  {/* Before / After Split Boxes */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+                    {/* Before Card */}
+                    <div style={{
+                      background: 'rgba(254, 242, 242, 0.75)',
+                      padding: '1.25rem',
+                      borderRadius: 'var(--radius-md)',
+                      border: '1.5px dashed #fca5a5'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', marginBottom: '0.5rem', color: '#b91c1c', fontSize: '0.75rem', fontWeight: 700 }}>
+                        <span>❌ RAW DRAFT INPUT</span>
+                      </div>
+                      <p style={{ fontSize: '0.875rem', color: '#7f1d1d', fontStyle: 'italic', lineHeight: 1.5 }}>
+                        "{currentSample.before}"
+                      </p>
+                    </div>
+
+                    {/* After Card */}
+                    <div style={{
+                      background: 'rgba(236, 253, 245, 0.85)',
+                      padding: '1.25rem',
+                      borderRadius: 'var(--radius-md)',
+                      border: '1.5px solid #6ee7b7',
+                      boxShadow: '0 4px 12px rgba(16, 185, 129, 0.1)'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                        <span style={{ color: '#047857', fontSize: '0.75rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                          <Check size={14} /> RESUBLOOM AI SYNTHESIS
+                        </span>
+                        <span className="badge badge-success" style={{ fontSize: '0.7rem' }}>
+                          {currentSample.impact}
+                        </span>
+                      </div>
+                      <p style={{ fontSize: '0.875rem', color: '#064e3b', fontWeight: 500, lineHeight: 1.55 }}>
+                        {currentSample.after}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 2: ATS KEYWORD RADAR & COMPLIANCE */}
+              {activeShowcaseTab === 'ats-score' && (
+                <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+                    <div className="card-yellow" style={{ padding: '1.25rem', textAlign: 'center' }}>
+                      <div style={{ fontSize: '2rem', fontWeight: 800, color: '#854d0e', lineHeight: 1 }}>99%</div>
+                      <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: '#713f12', marginTop: '0.25rem' }}>ATS Match Score</div>
+                      <p style={{ fontSize: '0.75rem', color: '#854d0e', marginTop: '0.25rem' }}>Passes Taleo, Workday & Greenhouse parsers.</p>
+                    </div>
+                    <div className="card-lavender" style={{ padding: '1.25rem', textAlign: 'center' }}>
+                      <div style={{ fontSize: '2rem', fontWeight: 800, color: '#6b21a8', lineHeight: 1 }}>100%</div>
+                      <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: '#581c87', marginTop: '0.25rem' }}>Action Verb Density</div>
+                      <p style={{ fontSize: '0.75rem', color: '#6b21a8', marginTop: '0.25rem' }}>Eliminates weak passive verbs automatically.</p>
+                    </div>
+                    <div className="card-lavender" style={{ padding: '1.25rem', textAlign: 'center' }}>
+                      <div style={{ fontSize: '2rem', fontWeight: 800, color: '#10b981', lineHeight: 1 }}>0 Sec</div>
+                      <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: '#047857', marginTop: '0.25rem' }}>Recruiter Friction</div>
+                      <p style={{ fontSize: '0.75rem', color: '#065f46', marginTop: '0.25rem' }}>Standardized typography & clean hierarchies.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 3: PALETTE THEMES CUSTOMIZER */}
+              {activeShowcaseTab === 'styles' && (
+                <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#581c87' }}>
+                      Select an accent color theme to preview your resume branding:
+                    </span>
+                    <div style={{ display: 'flex', gap: '0.625rem', alignItems: 'center' }}>
+                      {themeOptions.map((thm) => (
+                        <button
+                          key={thm.name}
+                          type="button"
+                          onClick={() => setActiveThemeColor(thm.color)}
+                          style={{
+                            width: '28px',
+                            height: '28px',
+                            borderRadius: '50%',
+                            backgroundColor: thm.color,
+                            border: activeThemeColor === thm.color ? '3px solid #fff' : '2px solid transparent',
+                            boxShadow: activeThemeColor === thm.color ? `0 0 0 2px ${thm.color}` : 'none',
+                            cursor: 'pointer',
+                            transform: activeThemeColor === thm.color ? 'scale(1.15)' : 'scale(1)',
+                            transition: 'all 0.2s ease'
+                          }}
+                          title={thm.name}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div style={{
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    padding: '1.25rem 1.5rem',
+                    borderRadius: 'var(--radius-md)',
+                    borderLeft: `4px solid ${activeThemeColor}`,
+                    boxShadow: 'var(--shadow-sm)'
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.375rem' }}>
+                      <span style={{ fontWeight: 800, fontSize: '1rem', color: '#0f172a' }}>Executive Resume Layout</span>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: activeThemeColor, textTransform: 'uppercase' }}>Active Accent</span>
+                    </div>
+                    <p style={{ fontSize: '0.8125rem', color: '#64748b', margin: 0 }}>
+                      Typography, section dividers, and skills badges dynamically style to your preferred brand aesthetic.
                     </p>
                   </div>
                 </div>
-
-                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                  <span className="badge badge-success" style={{ fontSize: '0.75rem' }}>
-                    <Check size={12} /> ATS Score: 98/100
-                  </span>
-                  <span className="badge badge-primary" style={{ fontSize: '0.75rem' }}>
-                    <Sparkles size={12} /> AI Enhanced
-                  </span>
-                </div>
-              </div>
-
-              {/* Sample Resume Preview Lines */}
-              <div>
-                <div style={{ marginBottom: '1.25rem' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--slate-500)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Executive Summary
-                  </span>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--slate-700)', marginTop: '0.25rem', lineHeight: 1.55 }}>
-                    Accomplished Full-Stack Engineer with 6+ years specializing in distributed cloud infrastructure, microservices, and React ecosystems. Spearheaded architecture migrations resulting in 40% latency reduction.
-                  </p>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
-                  <div style={{ background: 'rgba(238, 242, 255, 0.6)', padding: '0.875rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(199, 210, 254, 0.6)' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.25rem' }}>⚡ CORE EXPERTISE</div>
-                    <div style={{ fontSize: '0.8125rem', color: 'var(--slate-700)' }}>React • Node.js • TypeScript • Cloud Architecture</div>
-                  </div>
-                  <div style={{ background: 'rgba(236, 253, 245, 0.6)', padding: '0.875rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(167, 243, 208, 0.6)' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--success)', marginBottom: '0.25rem' }}>🎯 KEY IMPACT</div>
-                    <div style={{ fontSize: '0.8125rem', color: 'var(--slate-700)' }}>Scaled enterprise platform from 10k to 500k active users</div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
