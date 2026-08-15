@@ -30,7 +30,7 @@ import {
   AlertCircle,
   FileText
 } from 'lucide-react';
-import { apiService } from '../services/api';
+import { generateResume } from '../services/api';
 import { useToast } from '../context/ToastContext';
 import { GenerationProgress } from '../components/UI/LoadingSpinner';
 
@@ -135,6 +135,7 @@ const THEMES = [
 ];
 
 export const GenerateResume = () => {
+
   const { getToken } = useAuth();
   const { user } = useUser();
   const navigate = useNavigate();
@@ -383,7 +384,7 @@ export const GenerateResume = () => {
         userEmail: user?.primaryEmailAddress?.emailAddress || formData.email
       };
 
-      const response = await apiService.generateResume(payload, token);
+      const response = await generateResume(payload, token);
       const generated = response.resume || response.data || response;
 
       // Update form with AI enriched data if structured response returned
@@ -496,13 +497,12 @@ export const GenerateResume = () => {
                       if (activeStep === 1 && !validateStep(1) && step.id > 1) return;
                       setActiveStep(step.id);
                     }}
-                    className={`flex-1 min-w-[90px] sm:min-w-[110px] flex flex-col items-center py-2.5 px-2 rounded-xl text-center transition-all ${
-                      isActive
-                        ? 'bg-indigo-600 text-white shadow-sm font-semibold'
-                        : isPassed
+                    className={`flex-1 min-w-[90px] sm:min-w-[110px] flex flex-col items-center py-2.5 px-2 rounded-xl text-center transition-all ${isActive
+                      ? 'bg-indigo-600 text-white shadow-sm font-semibold'
+                      : isPassed
                         ? 'bg-indigo-50/70 text-indigo-700 hover:bg-indigo-100/70'
                         : 'text-slate-600 hover:bg-slate-100'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center gap-1.5 mb-0.5">
                       <Icon size={16} className={isActive ? 'text-white' : isPassed ? 'text-indigo-600' : 'text-slate-400'} />
@@ -541,9 +541,8 @@ export const GenerateResume = () => {
                         value={formData.fullName}
                         onChange={handlePersonalChange}
                         placeholder="e.g. Sarah Jenkins"
-                        className={`w-full px-3.5 py-2.5 text-sm bg-white rounded-xl border ${
-                          errors.fullName ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
-                        } focus:outline-none focus:ring-4 transition text-slate-800`}
+                        className={`w-full px-3.5 py-2.5 text-sm bg-white rounded-xl border ${errors.fullName ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                          } focus:outline-none focus:ring-4 transition text-slate-800`}
                       />
                       {errors.fullName && <p className="text-xs text-red-500 font-medium mt-1">{errors.fullName}</p>}
                     </div>
@@ -559,9 +558,8 @@ export const GenerateResume = () => {
                         value={formData.targetRole}
                         onChange={handlePersonalChange}
                         placeholder="e.g. Senior Full Stack Software Engineer"
-                        className={`w-full px-3.5 py-2.5 text-sm bg-white rounded-xl border ${
-                          errors.targetRole ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
-                        } focus:outline-none focus:ring-4 transition text-slate-800`}
+                        className={`w-full px-3.5 py-2.5 text-sm bg-white rounded-xl border ${errors.targetRole ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                          } focus:outline-none focus:ring-4 transition text-slate-800`}
                       />
                       {errors.targetRole && <p className="text-xs text-red-500 font-medium mt-1">{errors.targetRole}</p>}
                     </div>
@@ -577,9 +575,8 @@ export const GenerateResume = () => {
                         value={formData.email}
                         onChange={handlePersonalChange}
                         placeholder="sarah.jenkins@example.com"
-                        className={`w-full px-3.5 py-2.5 text-sm bg-white rounded-xl border ${
-                          errors.email ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
-                        } focus:outline-none focus:ring-4 transition text-slate-800`}
+                        className={`w-full px-3.5 py-2.5 text-sm bg-white rounded-xl border ${errors.email ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                          } focus:outline-none focus:ring-4 transition text-slate-800`}
                       />
                       {errors.email && <p className="text-xs text-red-500 font-medium mt-1">{errors.email}</p>}
                     </div>
@@ -1070,9 +1067,8 @@ export const GenerateResume = () => {
                     <button
                       key={theme.id}
                       onClick={() => setSelectedTheme(theme)}
-                      className={`w-6 h-6 rounded-full border-2 transition ${
-                        selectedTheme.id === theme.id ? 'scale-110 shadow-sm ring-2 ring-indigo-300' : 'opacity-70 hover:opacity-100'
-                      }`}
+                      className={`w-6 h-6 rounded-full border-2 transition ${selectedTheme.id === theme.id ? 'scale-110 shadow-sm ring-2 ring-indigo-300' : 'opacity-70 hover:opacity-100'
+                        }`}
                       style={{ backgroundColor: theme.primary, borderColor: '#ffffff' }}
                       title={theme.name}
                     />
