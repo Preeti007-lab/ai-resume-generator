@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { FloralBackdrop } from './components/FloralBackdrop';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { HomePage } from './pages/HomePage';
 import { GenerateResume } from './pages/GenerateResume';
@@ -10,7 +11,10 @@ import { AlertCircle, Key } from 'lucide-react';
 
 export const App = ({ hasValidClerkKey }) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
+      {/* Global Botanical Floral Backdrop & Animated Floating Petals */}
+      <FloralBackdrop />
+
       {/* Clerk Key Missing Warning Banner if applicable */}
       {!hasValidClerkKey && (
         <div
@@ -40,7 +44,7 @@ export const App = ({ hasValidClerkKey }) => {
       <Navbar />
 
       {/* Main Application Routes */}
-      <main style={{ flex: 1 }}>
+      <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           

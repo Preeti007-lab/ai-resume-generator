@@ -40,23 +40,23 @@ export const HomePage = () => {
           {/* Top Pill Badge */}
           <div style={{ display: 'inline-flex', marginBottom: '1.5rem' }}>
             <span className="badge badge-aurora" style={{
-              padding: '0.45rem 1rem',
-              fontSize: '0.84rem',
+              padding: '0.45rem 1.15rem',
+              fontSize: '0.85rem',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              boxShadow: '0 4px 14px rgba(99, 102, 241, 0.15)'
+              boxShadow: '0 4px 16px rgba(236, 72, 153, 0.18)'
             }}>
-              <Sparkles size={15} style={{ color: 'var(--primary)' }} />
-              <span>Next-Gen AI Resume Engine</span>
+              <span>🌸</span>
+              <span>Floral Aesthetic Edition</span>
               <span style={{
                 background: 'var(--aurora-gradient)',
                 color: '#fff',
-                padding: '0.1rem 0.45rem',
+                padding: '0.1rem 0.5rem',
                 borderRadius: '999px',
                 fontSize: '0.7rem',
                 fontWeight: 700
-              }}>v2.0</span>
+              }}>AI Powered</span>
             </span>
           </div>
 
