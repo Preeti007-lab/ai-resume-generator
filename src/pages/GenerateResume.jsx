@@ -483,12 +483,14 @@ export const GenerateResume = () => {
           {/* LEFT COLUMN: MULTI-STEP RESUME BUILDER PANEL (5/12 or 6/12 on large screens) */}
           {/* ========================================================================= */}
           <div className="lg:col-span-6 xl:col-span-5 flex flex-col gap-6 no-print">
-            {/* Step Navigation Tabs */}
-            <div className="bg-white p-2 sm:p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between gap-1 overflow-x-auto">
-              {steps.map((step) => {
+            {/* Step Navigation Tabs with Light Lavender & Yellow Tones */}
+            <div className="bg-gradient-to-r from-purple-100/90 via-yellow-50/90 to-purple-100/90 backdrop-blur-xl p-2 sm:p-3 rounded-2xl border border-purple-200/80 shadow-md flex items-center justify-between gap-1.5 overflow-x-auto">
+              {steps.map((step, idx) => {
                 const Icon = step.icon;
                 const isActive = activeStep === step.id;
                 const isPassed = activeStep > step.id;
+                // Alternating lavender and soft sunny yellow theme for tabs
+                const isYellow = idx % 2 === 1;
 
                 return (
                   <button
@@ -498,14 +500,20 @@ export const GenerateResume = () => {
                       setActiveStep(step.id);
                     }}
                     className={`flex-1 min-w-[90px] sm:min-w-[110px] flex flex-col items-center py-2.5 px-2 rounded-xl text-center transition-all ${isActive
-                      ? 'bg-indigo-600 text-white shadow-sm font-semibold'
+                      ? isYellow
+                        ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-amber-950 shadow-md font-bold'
+                        : 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md font-bold'
                       : isPassed
-                        ? 'bg-indigo-50/70 text-indigo-700 hover:bg-indigo-100/70'
-                        : 'text-slate-600 hover:bg-slate-100'
+                        ? isYellow
+                          ? 'bg-yellow-100/90 text-yellow-900 border border-yellow-200/90 hover:bg-yellow-200'
+                          : 'bg-purple-100/90 text-purple-900 border border-purple-200/90 hover:bg-purple-200'
+                        : isYellow
+                          ? 'bg-yellow-50/80 text-yellow-800 border border-yellow-200/50 hover:bg-yellow-100/80'
+                          : 'bg-purple-50/80 text-purple-800 border border-purple-200/50 hover:bg-purple-100/80'
                       }`}
                   >
                     <div className="flex items-center gap-1.5 mb-0.5">
-                      <Icon size={16} className={isActive ? 'text-white' : isPassed ? 'text-indigo-600' : 'text-slate-400'} />
+                      <Icon size={16} className={isActive ? (isYellow ? 'text-amber-950' : 'text-white') : isYellow ? 'text-yellow-700' : 'text-purple-700'} />
                       <span className="text-xs font-bold uppercase tracking-wider">Step {step.id}</span>
                     </div>
                     <span className="text-xs truncate max-w-full font-medium">{step.title}</span>
@@ -515,7 +523,7 @@ export const GenerateResume = () => {
             </div>
 
             {/* Step Form Content Cards */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 flex flex-col">
+            <div className="bg-purple-50/85 backdrop-blur-xl rounded-2xl border border-purple-200/70 shadow-md p-6 sm:p-7 flex flex-col">
               {/* STEP 1: PERSONAL INFO */}
               {activeStep === 1 && (
                 <div className="space-y-5 animate-fade-in">
@@ -1057,7 +1065,7 @@ export const GenerateResume = () => {
           {/* ========================================================================= */}
           <div className="lg:col-span-6 xl:col-span-7 flex flex-col gap-4">
             {/* Paper Mockup Controls Bar (Hidden during print) */}
-            <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-3 no-print">
+            <div className="bg-gradient-to-r from-purple-50/90 via-yellow-50/90 to-purple-50/90 backdrop-blur-xl p-3.5 sm:p-4 rounded-2xl border border-purple-200/80 shadow-md flex flex-wrap items-center justify-between gap-3 no-print">
               {/* Palette / Theme Selector */}
               <div className="flex items-center gap-2">
                 <Palette size={16} className="text-slate-500" />

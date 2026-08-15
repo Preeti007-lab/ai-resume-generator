@@ -281,80 +281,83 @@ export const HomePage = () => {
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '2rem'
         }}>
-          {/* Step 1 */}
-          <div className="card card-hover" style={{ padding: '2.25rem 2rem', textAlign: 'center' }}>
+          {/* Step 1: Light Lavender Card */}
+          <div className="card-lavender" style={{ padding: '2.25rem 2rem', textAlign: 'center' }}>
             <div style={{
               width: 56,
               height: 56,
               borderRadius: 'var(--radius-lg)',
-              background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.15) 0%, rgba(99, 102, 241, 0.25) 100%)',
-              color: 'var(--primary)',
+              background: 'rgba(233, 213, 255, 0.95)',
+              color: '#7e22ce',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 1.5rem',
               fontSize: '1.35rem',
               fontWeight: 800,
-              boxShadow: '0 4px 12px rgba(79, 70, 229, 0.15)'
+              border: '1.5px solid rgba(216, 180, 254, 0.9)',
+              boxShadow: '0 4px 12px rgba(168, 85, 247, 0.18)'
             }}>
               1
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '0.625rem', color: 'var(--slate-900)' }}>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '0.625rem', color: '#581c87' }}>
               Enter Profile Details
             </h3>
-            <p style={{ fontSize: '0.9375rem', color: 'var(--slate-600)', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '0.9375rem', color: '#6b21a8', lineHeight: 1.6 }}>
               Input your target job title, career history, education, skills, and key projects into structured fields.
             </p>
           </div>
 
-          {/* Step 2 */}
-          <div className="card card-hover" style={{ padding: '2.25rem 2rem', textAlign: 'center' }}>
+          {/* Step 2: Light Yellow Card */}
+          <div className="card-yellow" style={{ padding: '2.25rem 2rem', textAlign: 'center' }}>
             <div style={{
               width: 56,
               height: 56,
               borderRadius: 'var(--radius-lg)',
-              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(236, 72, 153, 0.25) 100%)',
-              color: '#a855f7',
+              background: 'rgba(254, 240, 138, 0.95)',
+              color: '#854d0e',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 1.5rem',
               fontSize: '1.35rem',
               fontWeight: 800,
-              boxShadow: '0 4px 12px rgba(168, 85, 247, 0.15)'
+              border: '1.5px solid rgba(253, 224, 71, 0.9)',
+              boxShadow: '0 4px 12px rgba(234, 179, 8, 0.18)'
             }}>
               2
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '0.625rem', color: 'var(--slate-900)' }}>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '0.625rem', color: '#713f12' }}>
               AI Synthesizes & Formats
             </h3>
-            <p style={{ fontSize: '0.9375rem', color: 'var(--slate-600)', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '0.9375rem', color: '#854d0e', lineHeight: 1.6 }}>
               Groq AI rewrites your accomplishments with action verbs, industry keywords, and ATS-friendly formatting.
             </p>
           </div>
 
-          {/* Step 3 */}
-          <div className="card card-hover" style={{ padding: '2.25rem 2rem', textAlign: 'center' }}>
+          {/* Step 3: Light Lavender Card */}
+          <div className="card-lavender" style={{ padding: '2.25rem 2rem', textAlign: 'center' }}>
             <div style={{
               width: 56,
               height: 56,
               borderRadius: 'var(--radius-lg)',
-              background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(16, 185, 129, 0.25) 100%)',
-              color: '#0891b2',
+              background: 'rgba(233, 213, 255, 0.95)',
+              color: '#7e22ce',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 1.5rem',
               fontSize: '1.35rem',
               fontWeight: 800,
-              boxShadow: '0 4px 12px rgba(6, 182, 212, 0.15)'
+              border: '1.5px solid rgba(216, 180, 254, 0.9)',
+              boxShadow: '0 4px 12px rgba(168, 85, 247, 0.18)'
             }}>
               3
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '0.625rem', color: 'var(--slate-900)' }}>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '0.625rem', color: '#581c87' }}>
               Store, Print & Share
             </h3>
-            <p style={{ fontSize: '0.9375rem', color: 'var(--slate-600)', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '0.9375rem', color: '#6b21a8', lineHeight: 1.6 }}>
               Your resume is securely stored in your personal dashboard. Print directly to PDF or copy text anytime.
             </p>
           </div>
@@ -365,7 +368,7 @@ export const HomePage = () => {
       <section className="container" style={{ padding: '4rem 1.5rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div style={{ display: 'inline-flex', marginBottom: '0.75rem' }}>
-            <span className="badge badge-primary" style={{ fontSize: '0.8rem' }}>
+            <span className="badge badge-lavender" style={{ fontSize: '0.8rem' }}>
               <Cpu size={13} /> Enterprise Quality
             </span>
           </div>
@@ -382,101 +385,105 @@ export const HomePage = () => {
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '1.75rem'
         }}>
-          <div className="card card-hover" style={{ display: 'flex', gap: '1.25rem', padding: '2rem' }}>
+          {/* Feature 1: Lavender Card */}
+          <div className="card-lavender" style={{ display: 'flex', gap: '1.25rem', padding: '2rem' }}>
             <div style={{
               width: 48,
               height: 48,
               borderRadius: 'var(--radius-md)',
-              background: 'rgba(238, 242, 255, 0.9)',
-              color: 'var(--primary)',
+              background: 'rgba(233, 213, 255, 0.95)',
+              color: '#7e22ce',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
-              boxShadow: '0 4px 10px rgba(79, 70, 229, 0.15)'
+              boxShadow: '0 4px 10px rgba(168, 85, 247, 0.18)'
             }}>
               <Zap size={24} />
             </div>
             <div>
-              <h4 style={{ fontSize: '1.125rem', marginBottom: '0.375rem', color: 'var(--slate-900)' }}>
+              <h4 style={{ fontSize: '1.125rem', marginBottom: '0.375rem', color: '#581c87' }}>
                 Lightning-Fast AI Generation
               </h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--slate-600)', lineHeight: 1.55 }}>
+              <p style={{ fontSize: '0.9rem', color: '#6b21a8', lineHeight: 1.55 }}>
                 Powered by Groq's high-speed inference, get tailored executive summaries and bullet points in seconds.
               </p>
             </div>
           </div>
 
-          <div className="card card-hover" style={{ display: 'flex', gap: '1.25rem', padding: '2rem' }}>
+          {/* Feature 2: Yellow Card */}
+          <div className="card-yellow" style={{ display: 'flex', gap: '1.25rem', padding: '2rem' }}>
             <div style={{
               width: 48,
               height: 48,
               borderRadius: 'var(--radius-md)',
-              background: 'rgba(236, 253, 245, 0.9)',
-              color: 'var(--success)',
+              background: 'rgba(254, 240, 138, 0.95)',
+              color: '#854d0e',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
-              boxShadow: '0 4px 10px rgba(16, 185, 129, 0.15)'
+              boxShadow: '0 4px 10px rgba(234, 179, 8, 0.18)'
             }}>
               <Target size={24} />
             </div>
             <div>
-              <h4 style={{ fontSize: '1.125rem', marginBottom: '0.375rem', color: 'var(--slate-900)' }}>
+              <h4 style={{ fontSize: '1.125rem', marginBottom: '0.375rem', color: '#713f12' }}>
                 ATS-Compliant Structure
               </h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--slate-600)', lineHeight: 1.55 }}>
+              <p style={{ fontSize: '0.9rem', color: '#854d0e', lineHeight: 1.55 }}>
                 Clean typography, standardized section hierarchies, and readable layouts ensure automated systems score your resume high.
               </p>
             </div>
           </div>
 
-          <div className="card card-hover" style={{ display: 'flex', gap: '1.25rem', padding: '2rem' }}>
+          {/* Feature 3: Lavender Card */}
+          <div className="card-lavender" style={{ display: 'flex', gap: '1.25rem', padding: '2rem' }}>
             <div style={{
               width: 48,
               height: 48,
               borderRadius: 'var(--radius-md)',
-              background: 'rgba(240, 249, 255, 0.9)',
-              color: '#0284c7',
+              background: 'rgba(233, 213, 255, 0.95)',
+              color: '#7e22ce',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
-              boxShadow: '0 4px 10px rgba(2, 132, 199, 0.15)'
+              boxShadow: '0 4px 10px rgba(168, 85, 247, 0.18)'
             }}>
               <Lock size={24} />
             </div>
             <div>
-              <h4 style={{ fontSize: '1.125rem', marginBottom: '0.375rem', color: 'var(--slate-900)' }}>
+              <h4 style={{ fontSize: '1.125rem', marginBottom: '0.375rem', color: '#581c87' }}>
                 Secure Clerk Authentication
               </h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--slate-600)', lineHeight: 1.55 }}>
+              <p style={{ fontSize: '0.9rem', color: '#6b21a8', lineHeight: 1.55 }}>
                 Your personal career data and generated resumes are strictly isolated and protected under your authenticated account.
               </p>
             </div>
           </div>
 
-          <div className="card card-hover" style={{ display: 'flex', gap: '1.25rem', padding: '2rem' }}>
+          {/* Feature 4: Yellow Card */}
+          <div className="card-yellow" style={{ display: 'flex', gap: '1.25rem', padding: '2rem' }}>
             <div style={{
               width: 48,
               height: 48,
               borderRadius: 'var(--radius-md)',
-              background: 'rgba(253, 244, 255, 0.9)',
-              color: '#c026d3',
+              background: 'rgba(254, 240, 138, 0.95)',
+              color: '#854d0e',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
-              boxShadow: '0 4px 10px rgba(192, 38, 211, 0.15)'
+              boxShadow: '0 4px 10px rgba(234, 179, 8, 0.18)'
             }}>
               <Layers size={24} />
             </div>
             <div>
-              <h4 style={{ fontSize: '1.125rem', marginBottom: '0.375rem', color: 'var(--slate-900)' }}>
+              <h4 style={{ fontSize: '1.125rem', marginBottom: '0.375rem', color: '#713f12' }}>
                 Saved Resumes Dashboard
               </h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--slate-600)', lineHeight: 1.55 }}>
+              <p style={{ fontSize: '0.9rem', color: '#854d0e', lineHeight: 1.55 }}>
                 Store multiple versions tailored to different job applications. View, manage, and delete resumes on demand.
               </p>
             </div>

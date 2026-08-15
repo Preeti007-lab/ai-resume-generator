@@ -105,7 +105,7 @@ export const MyResumesPage = () => {
       }}>
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', marginBottom: '0.375rem' }}>
-            <span className="badge badge-primary">
+            <span className="badge badge-lavender">
               <LayoutDashboard size={12} /> Dashboard
             </span>
           </div>

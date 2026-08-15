@@ -34,7 +34,7 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
   const experienceCount = Array.isArray(rawData.experience) ? rawData.experience.length : 0;
 
   return (
-    <div className="card card-hover animate-fade-in" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div className="card-lavender card-hover animate-fade-in" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', gap: '0.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
           <div style={{
@@ -47,21 +47,21 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
             alignItems: 'center',
             justifyContent: 'center',
             flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(79, 70, 229, 0.25)'
+            boxShadow: '0 4px 12px rgba(168, 85, 247, 0.25)'
           }}>
             <FileText size={20} />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.0625rem', color: 'var(--slate-900)', fontWeight: 700, lineHeight: 1.3 }}>
+            <h3 style={{ fontSize: '1.0625rem', color: '#581c87', fontWeight: 700, lineHeight: 1.3 }}>
               {title}
             </h3>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--primary)', fontWeight: 600 }}>
+            <p style={{ fontSize: '0.8125rem', color: '#7e22ce', fontWeight: 600 }}>
               {name}
             </p>
           </div>
         </div>
 
-        <span className="badge badge-slate" style={{ fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+        <span className="badge badge-yellow" style={{ fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
           <Calendar size={12} />
           {creationDate}
         </span>
@@ -70,7 +70,7 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
       {summary && (
         <p style={{
           fontSize: '0.875rem',
-          color: 'var(--slate-600)',
+          color: '#6b21a8',
           margin: '0 0 1.25rem',
           lineHeight: 1.55,
           display: '-webkit-box',
@@ -84,12 +84,12 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
 
       <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.25rem', marginTop: 'auto', flexWrap: 'wrap' }}>
         {experienceCount > 0 && (
-          <span className="badge badge-slate" style={{ fontSize: '0.75rem' }}>
+          <span className="badge badge-yellow" style={{ fontSize: '0.75rem' }}>
             {experienceCount} {experienceCount === 1 ? 'Role' : 'Roles'}
           </span>
         )}
         {skillsCount > 0 && (
-          <span className="badge badge-slate" style={{ fontSize: '0.75rem' }}>
+          <span className="badge badge-lavender" style={{ fontSize: '0.75rem' }}>
             {skillsCount} Skills
           </span>
         )}
@@ -103,7 +103,7 @@ export const ResumeCard = ({ resume, onView, onDelete }) => {
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingTop: '0.875rem',
-        borderTop: '1px solid var(--slate-100)',
+        borderTop: '1px solid rgba(216, 180, 254, 0.4)',
         gap: '0.5rem'
       }}>
         <button
