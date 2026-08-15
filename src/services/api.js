@@ -1,9 +1,9 @@
 // Your live Render cloud URL path
-const API_BASE_URL = "https://onrender.com";
+const API_BASE_URL = "https://preeti-resume-backend.onrender.com";
 
 export const generateResume = async (resumeData, token) => {
   try {
-    const response = await fetch(`${API_BASE_URL}generate`, {
+    const response = await fetch(`${API_BASE_URL}/generate`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
