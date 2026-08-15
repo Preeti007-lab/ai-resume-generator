@@ -59,7 +59,7 @@ export const apiService = {
    */
   generateResume: async (resumeData, token) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/generate-resume`, {
+      const response = await fetch(`${API_BASE_URL}api/generate-resume`, {
         method: 'POST',
         headers: createHeaders(token),
         body: JSON.stringify(resumeData),
