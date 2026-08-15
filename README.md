@@ -14,6 +14,7 @@
 ## 🔗 Repository Links
 
 - **GitHub Repository**: [https://github.com/Preeti007-lab/ai-resume-generator](https://github.com/Preeti007-lab/ai-resume-generator)
+- **📖 Complete Source Code Reference**: [SOURCE_CODE.md](SOURCE_CODE.md)
 - **Live Backend API (Render)**: `https://preeti-resume-backend.onrender.com`
 - **Live Health Endpoint**: `https://preeti-resume-backend.onrender.com/health`
 
