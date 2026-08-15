@@ -48,7 +48,7 @@ export const HomePage = () => {
               boxShadow: '0 4px 16px rgba(236, 72, 153, 0.18)'
             }}>
               <span>🌸</span>
-              <span>Floral Aesthetic Edition</span>
+              <span>ResuBloom • Next-Gen AI Career Engine</span>
               <span style={{
                 background: 'var(--aurora-gradient)',
                 color: '#fff',
@@ -56,7 +56,7 @@ export const HomePage = () => {
                 borderRadius: '999px',
                 fontSize: '0.7rem',
                 fontWeight: 700
-              }}>AI Powered</span>
+              }}>v2.0</span>
             </span>
           </div>
 

@@ -431,7 +431,7 @@ export const GenerateResume = () => {
               <span>Interactive Multi-Step Builder</span>
             </div>
             <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-              AI Resume Creator & Live Mockup
+              ResuBloom • AI Resume Creator & Live Mockup
             </h1>
           </div>
 

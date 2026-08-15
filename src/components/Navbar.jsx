@@ -23,10 +23,10 @@ export const Navbar = () => {
         {/* Brand Logo */}
         <Link to="/" className="nav-brand" onClick={closeMobile}>
           <div className="nav-logo-icon">
-            <Sparkles size={20} />
+            <span style={{ fontSize: '1.15rem' }}>🌸</span>
           </div>
-          <span style={{ letterSpacing: '-0.02em' }}>
-            Resume<span style={{ color: 'var(--primary)' }}>AI</span>
+          <span style={{ letterSpacing: '-0.03em' }}>
+            Resu<span style={{ background: 'var(--aurora-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Bloom</span>
           </span>
         </Link>
 

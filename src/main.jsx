@@ -17,42 +17,44 @@ const hasValidClerkKey = Boolean(
 // Fallback test key if none specified so that ClerkProvider initializes without throwing fatal error
 const effectiveKey = clerkPublishableKey || 'pk_test_placeholder_key';
 
-// Custom Clerk branding & localization overrides
+// Custom Clerk branding & localization overrides for ResuBloom
 const clerkLocalization = {
   signIn: {
     start: {
-      title: 'Sign in to Resume AI Builder',
-      subtitle: 'to continue to Resume AI Builder'
+      title: 'Sign in to ResuBloom',
+      subtitle: 'to continue your career journey with ResuBloom'
     }
   },
   signUp: {
     start: {
-      title: 'Create your account',
-      subtitle: 'to get started with Resume AI Builder'
+      title: 'Create your ResuBloom account',
+      subtitle: 'to begin crafting executive AI resumes'
     }
   }
 };
 
 const clerkAppearance = {
   variables: {
-    colorPrimary: '#4f46e5',
+    colorPrimary: '#8b5cf6',
     colorTextSecondary: '#64748b',
     borderRadius: '0.75rem',
     fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
   },
   elements: {
     card: {
-      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
-      borderRadius: '1rem'
+      boxShadow: '0 20px 35px -5px rgba(168, 85, 247, 0.15), 0 8px 15px -6px rgba(0, 0, 0, 0.08)',
+      borderRadius: '1.25rem',
+      border: '1.5px solid rgba(216, 180, 254, 0.6)',
+      background: 'rgba(250, 245, 255, 0.98)'
     },
     headerTitle: {
       color: '#0f172a',
-      fontWeight: '700'
+      fontWeight: '800'
     },
     formButtonPrimary: {
-      backgroundColor: '#4f46e5',
+      background: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
       '&:hover': {
-        backgroundColor: '#4338ca'
+        background: 'linear-gradient(135deg, #db2777 0%, #7c3aed 100%)'
       }
     }
   }
